@@ -1,0 +1,96 @@
+{
+    "cta": {
+    "title": "Hozir Boshlang",
+    "description": "10 daqiqa ichida profilingizni yarating va imkoniyatlardan foydalaning",
+    "button": "Bepul Ro'yxatdan O'tish"
+  },
+    "auth": {
+    "email": "Elektron pochta",
+    "password": "Parol",
+    "confirmPassword": "Parolni tasdiqlash",
+    "forgotPassword": "Parolni unutdingizmi?",
+    "rememberMe": "Meni eslab qol",
+    "noAccount": "Hisobingiz yo'qmi?",
+    "hasAccount": "Hisobingiz bormi?",
+    "signupNow": "Hozir ro'yxatdan o'ting",
+    "loginNow": "Hozir kiring"
+  },
+  "features": {
+    "title": "Platforma Xususiyatlari",
+    "subtitle": "Nima uchun MeetUs tanlash kerak?",
+    "items": {
+      "profile": {
+        "title": "Professional Profil",
+        "description": "To'liq profil yarating va ish beruvchilar e'tiborini jalb qiling"
+      },
+      "search": {
+        "title": "Aqlli Qidiruv",
+        "description": "Mos keladigan vakansiyalarni topish uchun kuchli qidiruv tizimi"
+      },
+      "security": {
+        "title": "Xavfsiz Muloqot",
+        "description": "Ish beruvchilar bilan xavfsiz va samarali muloqot"
+      },
+      "analytics": {
+        "title": "Detallı Analitika",
+        "description": "Profil ko'rishlar va ariza statistikasini kuzating"
+      },
+      "mobile": {
+        "title": "Mobil Ilova",
+        "description": "Istalgan joydan kirish uchun mobil ilova"
+      },
+      "support": {
+        "title": "24/7 Qo'llab-quvvatlash",
+        "description": "Har qanday savol uchun doimiy qo'llab-quvvatlash"
+      }
+    }
+  },
+    "hero": {
+    "title": "Professional Ish Platformasi",
+    "subtitle": "MeetUs bilan karyerangizni rivojlantiring",
+    "description": "Dunyo miqyosidagi kompaniyalar va talantlar o'rtasida bog'lovchi. Eng yaxshi ish imkoniyatlari va mutaxassislarni toping.",
+    "primaryButton": "Boshlash",
+    "secondaryButton": "Demo Ko'rish",
+    "metrics": {
+      "companies": "Kompaniyalar",
+      "jobs": "Vakansiyalar",
+      "candidates": "Nomzodlar",
+      "hires": "Muvaffaqiyatli ishga qabul"
+    }
+  },
+ "nav": {
+    "home": "Bosh Sahifa",
+    "features": "Xususiyatlar",
+    "pricing": "Narxlar",
+    "docs": "Hujjatlar",
+    "login": "Kirish",
+    "signup": "Ro'yxatdan o'tish",
+    "profile": "Profil",
+    "jobs": "Ishlar",
+    "companies": "Kompaniyalar",
+    "blog": "Blog",
+    "plans": "Tariflar",
+    "contact": "Aloqa"
+  },
+  "language": {
+    "change": "Tilni o'zgartirish",
+    "uzbek": "O'zbek",
+    "russian": "Rus",
+    "tajik": "Tojik",
+    "english": "Ingliz"
+  },
+    "footer": {
+    "description": "Meetus mutaxassislar va kompaniyalarni bog'lab, hamkorlik qilish va global rivojlanishga yordam beradi.",
+    "newsletter": "Yangiliklar",
+    "subscribe": "Obuna bo'lish",
+    "rights": "Barcha huquqlar himoyalangan",
+    "product": "Mahsulot",
+    "company": "Kompaniya",
+    "support": "Yordam",
+    "legal": "Huquqiy",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanish shartlari",
+    "cookies": "Cookies",
+    "contact": "Aloqa"
+  }
+}

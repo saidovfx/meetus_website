@@ -1,0 +1,96 @@
+{
+ "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "docs": "Documentation",
+    "login": "Login",
+    "signup": "Sign Up",
+    "profile": "Profile",
+    "jobs": "Jobs",
+    "companies": "Companies",
+    "blog": "Blog",
+    "plans": "Plans",
+    "contact": "Contact"
+  },
+  "language": {
+    "change": "Change Language",
+    "uzbek": "Uzbek",
+    "russian": "Russian",
+    "tajik": "Tajik",
+    "english": "English"
+  },
+  "hero": {
+    "title": "Professional Job Platform",
+    "subtitle": "Grow Your Career with MeetUs",
+    "description": "Connecting world-class companies with talents. Find the best job opportunities and specialists.",
+    "primaryButton": "Get Started",
+    "secondaryButton": "View Demo",
+    "metrics": {
+      "companies": "Companies",
+      "jobs": "Jobs",
+      "candidates": "Candidates",
+      "hires": "Successful Hires"
+    }
+  },
+  "features": {
+    "title": "Platform Features",
+    "subtitle": "Why Choose MeetUs?",
+    "items": {
+      "profile": {
+        "title": "Professional Profile",
+        "description": "Create a complete profile and attract employers' attention"
+      },
+      "search": {
+        "title": "Smart Search",
+        "description": "Powerful search system for finding matching vacancies"
+      },
+      "security": {
+        "title": "Secure Communication",
+        "description": "Safe and effective communication with employers"
+      },
+      "analytics": {
+        "title": "Detailed Analytics",
+        "description": "Track profile views and application statistics"
+      },
+      "mobile": {
+        "title": "Mobile App",
+        "description": "Mobile application for access from anywhere"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock support for any questions"
+      }
+    }
+  },
+  "cta": {
+    "title": "Start Now",
+    "description": "Create your profile in 10 minutes and take advantage of opportunities",
+    "button": "Free Sign Up"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signupNow": "Sign Up Now",
+    "loginNow": "Login Now"
+  },
+  "footer": {
+    "description": "Meetus helps professionals and businesses connect, collaborate, and grow globally.",
+    "newsletter": "Newsletter",
+    "subscribe": "Subscribe",
+    "rights": "All rights reserved",
+    "product": "Product",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookies",
+    "contact": "Contact"
+  }
+}
