@@ -15,10 +15,9 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [warning, setWarning] = useState('')
-  const [errorField, setErrorField] = useState('') // qaysi inputda xato bor
+  const [errorField, setErrorField] = useState('') 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-
   const loading = selectedType?.pending
   const navigate = useNavigate()
   const { t } = useTranslation()
@@ -30,16 +29,13 @@ export default function SignUp() {
       return navigate(router.selectType)
     }
 
-    if (selectedType?.reportError?.status === 409) {
-      setWarning(t('serverError.usernameExist'))
-      setErrorField('username')
-    } else if (selectedType?.reportError?.status === 500) {
-      setWarning(t('serverError.error'))
-      setErrorField('form')
-    } else if (selectedType.reportError && !selectedType.reportError.status) {
-      setWarning(t('serverError.error'))
-      setErrorField('form')
-    }
+     if(selectedType?.success!==true){
+    setWarning(selectedType.reportError)
+     }else{
+      console.log(selectedType);
+      }
+
+    
   }, [selectedType, t, navigate])
 
   const validateEmail = (email) => {
@@ -74,10 +70,11 @@ export default function SignUp() {
     dispatch(signup({ email, password, username }))
   }
 const getInputClass = (field) => {
-  return `input input-bordered w-full bg-white ${
+  return `input input-bordered w-full bg-white text-gray-700 ${
     errorField === field ? 'border-red-500 focus:border-red-500' : ''
   }`
 }
+
 
 
   return (
@@ -143,7 +140,7 @@ const getInputClass = (field) => {
                 {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </span>
             </div>
-   {warning && (
+          {warning && (
             <p className="text-red-500 text-sm bg-red-100 p-2 rounded w-full max-w-md">
               {warning}
             </p>

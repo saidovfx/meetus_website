@@ -102,15 +102,7 @@
   "submit": "Select and Sign Up",
   "error":"Please select an account type!"
 },
-"serverError": {
-  "error": "Something went wrong. Please try again later.",
-  "selectError": "You didn't select a user type",
-  "usernameExist": "This username already exists",
-  "worseConfirmPassword": "The confirm password does not match",
-  "worseEmail": "Email is invalid or in incorrect format",
-  "usernameLength": "Username should be at least 3 characters",
-  "passwordlength": "Password should be at least 6 characters"
-},
+
 
 "signup": {
   "intro": "Let's get started",
@@ -121,7 +113,31 @@
   "confirmPasswordplace": "Confirm your password",
   "agreeTerms": "By signing up, you agree to our"
   
+},
+"serverError": {
+  "error": "Something went wrong. Please try again later.",
+  "selectError": "You didn't select a user type",
+  "usernameExist": "This username already exists",
+  "worseConfirmPassword": "The confirm password does not match",
+  "worseEmail": "Email is invalid or in incorrect format",
+  "usernameLength": "Username should be at least 3 characters",
+  "passwordlength": "Password should be at least 6 characters",
+"noCode": "The code doesn’t exist or doesn’t match",
+"codeExpired":"The code has expired",
+"codeWorse":"The code should contain 6 digits."
+
+},
+"success":{
+  "signedUp":"Registration successful",
+  "codeSent":"We've sent you a code!"
+},
+"verifyCode": {
+  "verifyCode": "Email verification code",
+  "desc": "We’ve sent a 6-digit verification code to your email address. Please check your inbox or spam folder and enter the code below to continue.",
+  "warning": "Didn’t receive the code? Click below to resend a new one.",
+  "sendAgain": "Send again"
 }
+
 
 
 }

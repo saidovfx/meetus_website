@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { selectType } from "../../features/auth.features/signup.user";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import router from "../../config/router.app";
 
 export default function SelectUserType() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const selected=useSelector(state=>state.auth)
       return;
     }
     dispatch(selectType({type:selectedType}));
+    navigate(router.signup)
     
   };
     
