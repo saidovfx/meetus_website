@@ -23,7 +23,7 @@ export const checkUserAuth = createAsyncThunk(
 );
 
 const initialState = {
-  user: null,
+  user: {},
   loading: false,
   error: null,
 };
@@ -41,6 +41,7 @@ const userSlice = createSlice({
       .addCase(checkUserAuth.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload;
+        
       })
       .addCase(checkUserAuth.rejected, (state, action) => {
         state.loading = false;

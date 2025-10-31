@@ -3,7 +3,8 @@ const router={
     signup:"/signup",
     verfiycode:"/verify-code",
     intro:"/",
-    selectType:'/select'
+    selectType:'/select',
+    forgot_password:'/forgot_password'
     
 }
 

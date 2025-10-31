@@ -122,9 +122,9 @@
   "worseEmail": "Email is invalid or in incorrect format",
   "usernameLength": "Username should be at least 3 characters",
   "passwordlength": "Password should be at least 6 characters",
-"noCode": "The code doesn’t exist or doesn’t match",
-"codeExpired":"The code has expired",
-"codeWorse":"The code should contain 6 digits."
+   "noCode": "The code doesn’t exist or doesn’t match",
+   "codeExpired":"The code has expired",
+  "codeWorse":"The code should contain 6 digits."
 
 },
 "success":{
@@ -135,7 +135,23 @@
   "verifyCode": "Email verification code",
   "desc": "We’ve sent a 6-digit verification code to your email address. Please check your inbox or spam folder and enter the code below to continue.",
   "warning": "Didn’t receive the code? Click below to resend a new one.",
-  "sendAgain": "Send again"
+  "sendAgain": "Send again",
+  "confirmCode":"Confirm code",
+  "timeExpired":"Time expired"
+},
+"login":{
+    "loggedIn":"Login successful",
+    "passwordMatch":"Incorrect password",
+    "userNotFound":"User not found",
+    "pleaseDetails": "Please enter your account details to continue",
+    "welcomeBack": "Welcome back! We've missed you",
+    "emailNoExists":"This email does not exist",
+    "forgotPassword": "Forgot your password",
+    "forgotDesc": "Please enter your valid email address which belongs to your username (account), we will send you verification code to reset your password.",
+    "submitSendCode": "Send code",
+    "backToLogin": "Back to login"
+  
+
 }
 
 

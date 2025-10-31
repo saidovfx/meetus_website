@@ -32,6 +32,7 @@ export default function Verify_Code() {
     } else if (codeData.repeat_success !== true) {
       setWarning(codeData.repeat_reportError);
     }
+    if(codeData.success!==true) return navigate(router.signup)
   }, [codeData]);
 
   const handleVerifyCode = () => {
@@ -94,7 +95,7 @@ export default function Verify_Code() {
               <Loader2 className="w-5 h-5 animate-spin" /> {t("loading")}
             </span>
           ) : (
-            t("verifyCode.confirm")
+            t("verifyCode.confirmCode")
           )}
         </button>
 

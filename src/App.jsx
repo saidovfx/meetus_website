@@ -13,6 +13,8 @@ import { useDispatch } from 'react-redux'
 import SelectUserType from './pages/auth.pages/SelectUserType.jsx'
 import SignUp from './pages/auth.pages/SignUp.jsx'
 import Verify_Code from './pages/auth.pages/Verify_Code.jsx'
+import Login from './pages/auth.pages/Login.jsx'
+import ForgotPassword from './pages/auth.pages/ForgotPassword.jsx'
 function App() {
   const dispatch=useDispatch()
 useEffect(()=>{
@@ -26,6 +28,9 @@ dispatch(checkUserAuth())
         <Route path={router.selectType} element={<SelectUserType/>} />
         <Route path={router.signup} element={<SignUp/>} />
         <Route path={router.verfiycode} element={<Verify_Code/>} />
+        <Route path={router.login} element={<Login/>}/>
+
+        <Route path={router.forgot_password} element={<ForgotPassword/>}/>
 
       </Routes>
     </>

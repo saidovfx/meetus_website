@@ -73,7 +73,7 @@ export default function Header() {
               <span>{getCurrentLanguageName()}</span>
             </button>
 
-            <button className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+            <button  onClick={()=>navigate(router.login)} className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
               {t('nav.login')}
             </button>
             <button onClick={()=>navigate(router.selectType)} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 font-medium">
@@ -138,7 +138,7 @@ export default function Header() {
               </a>
               
               <div className="pt-4 border-t border-gray-200 space-y-3">
-                <button className="w-full text-center text-blue-600 hover:text-blue-700 font-medium py-2">
+                <button onClick={()=>navigate(router.login)} className="w-full text-center text-blue-600 hover:text-blue-700 font-medium py-2">
                   {t('nav.login')}
                 </button>
                 <button onClick={()=>navigate(router.selectType)} className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white py-2 rounded-lg font-medium">

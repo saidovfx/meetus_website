@@ -7,7 +7,7 @@ import Stuck_image from '../../images/image3.png'
 import { signup } from '../../features/auth.features/signup.user'
 import router from '../../config/router.app'
 import { Eye, EyeOff } from 'lucide-react'
-
+import { usernameRegex,emailRegex } from '../../config/testRegex'
 export default function SignUp() {
   const selectedType = useSelector(state => state.auth)
   const [email, setEmail] = useState('')
@@ -31,18 +31,27 @@ export default function SignUp() {
 
      if(selectedType?.success!==true){
     setWarning(selectedType.reportError)
-     }else{
+     }else if(selectedType?.success==true){
+
       console.log(selectedType);
+      navigate(router.verfiycode)
+      return
       }
 
     
   }, [selectedType, t, navigate])
 
-  const validateEmail = (email) => {
-    const re = /\S+@\S+\.\S+/
-    return re.test(email)
+  const handleEmailChange = (email) => {
+   if(emailRegex.test(email) || email===''){
+  setEmail(email)
+   }
   }
 
+  const handleChange = (username) => {
+    if (username === '' || usernameRegex.test(username)) {
+      setUsername(username)
+    }
+  }
   const handleSignUp = () => {
     if (!validateEmail(email)) {
       setWarning(t('serverError.worseEmail'))
@@ -64,7 +73,6 @@ export default function SignUp() {
       setErrorField('confirmPassword')
       return
     }
-
     setWarning('')
     setErrorField('')
     dispatch(signup({ email, password, username }))
@@ -93,7 +101,7 @@ const getInputClass = (field) => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => handleEmailChange(e.target.value)}
               placeholder={t('signup.emailplace')}
               className={getInputClass('email')}
             />
@@ -102,7 +110,7 @@ const getInputClass = (field) => {
             <input
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => handleChange(e.target.value)}
               placeholder={t('signup.usernameplace')}
               className={getInputClass('username')}
             />
@@ -158,12 +166,11 @@ const getInputClass = (field) => {
             </button>
 
             <p className="text-gray-600 text-sm mt-2">
-              {t('auth.hasAccount')} <span className="text-blue-500 underline cursor-pointer">{t('nav.login')}</span>
+              {t('auth.hasAccount')} <span onClick={()=>navigate(router.login)} className="text-blue-500 underline cursor-pointer">{t('nav.login')}</span>
             </p>
           </div>
         </div>
 
-        {/* Image */}
         <div className="flex-1 hidden md:flex justify-center items-center">
           <img
             src={Stuck_image}
