@@ -6,7 +6,8 @@ import toast from 'react-hot-toast'
 import Stuck_image from '../../images/image3.png'
 import { signup } from '../../features/auth.features/signup.user'
 import router from '../../config/router.app'
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff ,Chrome} from 'lucide-react'
+import Google from '../../images/google-logo.webp'
 import { usernameRegex,emailRegex } from '../../config/testRegex'
 export default function SignUp() {
   const selectedType = useSelector(state => state.auth)
@@ -30,7 +31,7 @@ export default function SignUp() {
     }
 
      if(selectedType?.success!==true){
-    setWarning(selectedType.reportError)
+       setWarning(selectedType.reportError)
      }else if(selectedType?.success==true){
 
       console.log(selectedType);
@@ -70,7 +71,7 @@ export default function SignUp() {
     }
     setWarning('')
     setErrorField('')
-    dispatch(signup({ email, password, username }))
+    dispatch(signup({ email, password, username ,navigate}))
   }
 const getInputClass = (field) => {
   return `input input-bordered w-full bg-white text-gray-700 ${
@@ -151,14 +152,26 @@ const getInputClass = (field) => {
             <p className="text-gray-500 text-sm mt-2">
               {t('signup.agreeTerms')}: <span className="text-blue-500 underline">Terms of Service</span> & <span className="text-blue-500 underline">Privacy Policy</span>
             </p>
-
+    
             <button
               onClick={handleSignUp}
               className="btn bg-gradient-to-r from-[#4fc3f7] to-[#0288d1] text-white w-full mt-4 border-none hover:shadow-md hover:scale-[1.02] transition-transform duration-300"
               disabled={loading}
             >
+
+        
               {loading ? 'Loading...' : t('nav.signup')}
             </button>
+
+                       <a
+      href="http://localhost:1747/api/auth/google"
+      className="inline-flex items-center justify-center gap-3 w-full    max-w-xs py-3 px-4 bg-white border border-gray-300 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200"
+    >
+    <img src={Google}  className="w-15 h-10 text-blue-500" alt="" />
+       <span className="text-gray-700 font-semibold text-sm">
+        {t('signup.signupGoogle')}
+       </span>
+    </a>
 
             <p className="text-gray-600 text-sm mt-2">
               {t('auth.hasAccount')} <span onClick={()=>navigate(router.login)} className="text-blue-500 underline cursor-pointer">{t('nav.login')}</span>

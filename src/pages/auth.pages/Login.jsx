@@ -7,6 +7,7 @@ import { login_user } from '../../features/auth.features/login.user'
 import Stuck_image from '../../images/login_image.png'
 import router from '../../config/router.app'
 import { usernameRegex } from '../../config/testRegex'
+import Google from '../../images/google-logo.webp'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -112,7 +113,7 @@ export default function Login() {
               <p className="text-red-500 text-sm mt-1 text-center">{warning}</p>
             )}
 
-            <p className="text-right text-sm text-[#00bfff] hover:underline cursor-pointer">
+            <p  onClick={()=>navigate(router.forgot_password)} className="text-right text-sm text-[#00bfff] hover:underline cursor-pointer">
               {t('auth.forgotPassword')}
             </p>
 
@@ -128,6 +129,17 @@ export default function Login() {
               )}
             </button>
 
+
+
+                       <a
+      href="http://localhost:1747/api/auth/google"
+      className="inline-flex items-center justify-center gap-3 w-full    max-w-xs py-3 px-4 bg-white border border-gray-300 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200"
+    >
+    <img src={Google}  className="w-15 h-10 text-blue-500" alt="" />
+       <span className="text-gray-700 font-semibold text-sm">
+        {t('signup.signupGoogle')}
+       </span>
+    </a>
             <p className="text-center mt-4 text-sm text-gray-600">
               {t('auth.noAccount')}{' '}
               <span

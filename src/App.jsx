@@ -14,6 +14,8 @@ import Verify_Code from './pages/auth.pages/Verify_Code.jsx'
 import Login from './pages/auth.pages/Login.jsx'
 import ForgotPassword from './pages/auth.pages/ForgotPassword.jsx'
 import Verify_Forgot from './pages/auth.pages/Verify_Forgot.jsx'
+import ChangePassword from './pages/auth.pages/ChangePassword.jsx'
+import CompleteProfile from './pages/auth.pages/CompleteProfile.jsx'
 function App() {
   const userData=useSelector(state=>state.user)
   const dispatch=useDispatch()
@@ -34,10 +36,9 @@ function App() {
         <Route path={router.verfiycode} element={<Verify_Code/>} />
         <Route path={router.login} element={<Login/>}/>
         <Route path={router.verify_forgot} element={<Verify_Forgot/>}/>
-
-
+        <Route path={router.change_password} element={<ChangePassword/>}/>
         <Route path={router.forgot_password} element={<ForgotPassword/>}/>
-
+        <Route path={router.complete_profile} element={<CompleteProfile/>}/>
       </Routes>
     </>
   )

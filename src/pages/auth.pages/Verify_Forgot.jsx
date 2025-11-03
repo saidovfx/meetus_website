@@ -34,7 +34,7 @@ export default function Verify_Forgot() {
       return
     }
     setWarning('')
-    dispatch(verify_forgot({ code }))
+    dispatch(verify_forgot({ code,navigate }))
   }
 
   return (

@@ -22,10 +22,6 @@ export default function ForgotPassword() {
     if (forgotData?.forgot_reportError) {
       setWarning(forgotData.forgot_reportError)
       setLoading(false)
-    } else if (forgotData?.forgot_success) {
-      setWarning('')
-      setLoading(false)
-      navigate(router.verify_forgot)
     }
  
   }, [forgotData])
@@ -53,7 +49,11 @@ export default function ForgotPassword() {
 
     setWarning('')
     setLoading(true)
-    dispatch(forgot_password({ username, email }))
+    dispatch(forgot_password({ username, email,navigate }))
+
+  
+
+  
   }
 
   const inputClass =

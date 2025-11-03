@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../config/axios.api";
 import toast from "react-hot-toast";
 import { t } from "i18next";
-
+import router from "../../config/router.app";
 export  const login_user=createAsyncThunk(
     'login/login_user',
     async({username,password},{rejectWithValue})=>{
@@ -31,12 +31,13 @@ export  const login_user=createAsyncThunk(
 
 export const forgot_password=createAsyncThunk(
     'forgot/forgot_password',
-    async({username,email},{rejectWithValue,getState})=>{
+    async({username,email,navigate},{rejectWithValue,getState})=>{
         try {
             const response=await api.post('/forgot',{username,email})
 
             if (response.status===200 || response.status===201) {
                 toast.success(t('success.codeSent'))
+                navigate(router.verify_forgot)
                 return {data:response.data,email,username}
             }
 
@@ -61,11 +62,12 @@ export const forgot_password=createAsyncThunk(
 
 export const verify_forgot=createAsyncThunk(
     'verify_code/verify_forgot_password',
-    async({code},{rejectWithValue,getState})=>{
+    async({code,navigate},{rejectWithValue,getState})=>{
         try {
             const {email,username}=getState().login
             const response=await api.post('/forgot_password',{email,username,code})
             toast.success(t('login.successfullyVerified'))
+            navigate(router.change_password)
             return response.data
         } catch (error) {
             console.log("Error ocured while sending verify code to sever"+error.status,error.message);
@@ -122,12 +124,14 @@ export const login_without=createAsyncThunk(
     'login_without/login_without_passwowrd',
     async(_,{rejectWithValue,getState})=>{
         try {
-            const {username,id}=getState().login
-            const response=await api.post(`/no_password/${id}`,{username})
-            toast.success('Logged successfully')
+            const {username,verify_id}=getState().login            
+            const response=await api.post(`/no_password/${verify_id}`,{username})
+            toast.success(t('login.loggedIn'))
             return response.data
         } catch (error) {
               console.log("Error ocureed while login without password",+error.status,error.message);
+              console.log(error);
+              
           const status=error.status
              if(status===400 || status===500){
                 return rejectWithValue(t('serverError.error'))
@@ -149,7 +153,9 @@ export const login_without=createAsyncThunk(
 
 
 
+
 const initialState={
+    //login initialStates
     user:{},
     loading:false,
     error:false,
@@ -172,8 +178,14 @@ const initialState={
     change_reportError:'',
     change_loading:false,
     change_success:false,
-    change_error:false
+    change_error:false,
 
+
+    // login withour password initialStates
+    loginw_error:false,
+    loginw_reportError:'',
+    loginw_success:false,
+    loginw_loading:false
 }
 
 
@@ -192,8 +204,24 @@ const loginSlice=createSlice({
             state.forgot_error=false;
             state.forgot_loading=false;
             state.forgot_success=false;
-            state.error=false
-        }
+            state.error=false;
+            //verify
+            state.verify_error=false;
+            state.verify_loading=false,
+            state.verify_reportError='',
+            // state.verify_success=false,
+            //changes 
+            state.change_error=false,
+            state.change_loading=false,
+            state.change_reportError='',
+            state.change_success=false,
+            // loginw
+            state.loginw_error=false,
+            state.loginw_loading=false,
+            state.loginw_reportError='',
+            state.loginw_success=false        
+        },
+
     },
     extraReducers:(builder)=>{
         builder
@@ -264,7 +292,7 @@ const loginSlice=createSlice({
             state.verify_error=false,
             state.verify_success=true,
             state.verify_reportError='';
-            state.verify_id=action.payload
+            state.verify_id=action.payload.id
          })
 
          // change_password
@@ -281,11 +309,35 @@ const loginSlice=createSlice({
             state.change_success=false,
             state.change_reportError=action.payload;
          })
-           .addCase(verify_forgot.fulfilled,(state,action)=>{
+           .addCase(change_password.fulfilled,(state,action)=>{
             state.change_loading=false,
             state.change_error=false
             state.change_success=true,
             state.change_reportError='';
+         })
+
+         // login wihtout password addCases
+
+         .addCase(login_without.pending,(state,_)=>{
+            state.loginw_error=false;
+            state.loginw_loading=true;
+            state.loginw_reportError='';
+            state.loginw_success=false;
+
+         })
+             .addCase(login_without.rejected,(state,action)=>{
+            state.loginw_error=true;
+            state.loginw_loading=false;
+            state.loginw_reportError=action.payload;
+            state.loginw_success=false;
+            
+         }) 
+            .addCase(login_without.fulfilled,(state,_)=>{
+            state.loginw_error=false;
+            state.loginw_loading=false;
+            state.loginw_reportError='';
+            state.loginw_success=true;
+            
          })
 
     }

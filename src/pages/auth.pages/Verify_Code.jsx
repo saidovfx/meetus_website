@@ -32,7 +32,6 @@ export default function Verify_Code() {
     } else if (codeData.repeat_success !== true) {
       setWarning(codeData.repeat_reportError);
     }
-    if(codeData.success!==true) return navigate(router.signup)
   }, [codeData]);
 
   const handleVerifyCode = () => {
@@ -40,6 +39,9 @@ export default function Verify_Code() {
       return setWarning(t("serverError.codeWorse"));
     }
     dispatch(verify_code({ code }));
+
+    if(codeData.success!==true) return navigate(router.signup)
+
   };
 
   const handleRepeat = () => {

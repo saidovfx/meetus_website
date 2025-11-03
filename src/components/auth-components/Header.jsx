@@ -4,6 +4,7 @@ import { Menu, X, Globe } from "lucide-react";
 import LanguageModal from "./LanguageModal";
 import { useNavigate } from "react-router-dom";
 import router from "../../config/router.app";
+
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,7 +83,7 @@ export default function Header() {
           </div>
 
           <div className="flex md:hidden items-center space-x-2">
-            <button 
+            <button   
               onClick={() => setShowModal(true)} 
               className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
             >

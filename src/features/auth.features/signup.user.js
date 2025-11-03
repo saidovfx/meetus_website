@@ -2,13 +2,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../config/axios.api";
 import { t } from "i18next";
 import toast from "react-hot-toast";
-
+import router from "../../config/router.app";
 export const signup = createAsyncThunk(
   'signup/signupUser',
-  async ({ email, password, username }, { rejectWithValue }) => {
+  async ({ email, password, username,navigate }, { rejectWithValue }) => {
     try {
       const response = await api.post('/verify-request', { email, username });
-
+       navigate(router.verfiycode)
       toast.success(t('success.codeSent'));
       return { email, password, username };
     } catch (error) {

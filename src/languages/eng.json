@@ -111,7 +111,8 @@
   "usernameplace": "e.g., james_dev",
   "passwordplace": "Enter your password",
   "confirmPasswordplace": "Confirm your password",
-  "agreeTerms": "By signing up, you agree to our"
+  "agreeTerms": "By signing up, you agree to our",
+  "signupGoogle":"Signup with Google"
   
 },
 "serverError": {
@@ -157,7 +158,20 @@
     
   
 
-}
+},
+  "changePassword": {
+    "title": "Change your password",
+    "description": "Please enter your new password below and confirm it to secure your account.",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "fillAll": "Please fill in all fields.",
+    "shortPassword": "Password must be at least 6 characters long.",
+    "mismatch": "Passwords do not match.",
+    "save": "Save new password",
+    "success": "Password successfully changed!",
+    "backToLogin": "Back to login",
+    "loginWithoutChanges": "Login without changes"
+  }
 
 
 
