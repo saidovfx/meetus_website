@@ -40,7 +40,7 @@ export default function Verify_Code() {
     }
     dispatch(verify_code({ code }));
 
-
+    
   };
 
   const handleRepeat = () => {
