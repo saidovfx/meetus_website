@@ -33,7 +33,7 @@ function App() {
     useEffect(()=>{
      dispatch(checkUserAuth())
    },[checkUserAuth,navigate])
-    useEffect(() => {
+useEffect(() => {
     if (!userData?.loading) {
       if (!userData.user.email) {
         navigate(router.intro, { replace: true });
@@ -41,7 +41,7 @@ function App() {
         navigate(router.stuckNavigator, { replace: true });
       }
     }
-  }, []);
+  }, [userData?.loading, userData.user.email, navigate]);
 console.log(userData);
 
 

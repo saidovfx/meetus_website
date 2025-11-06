@@ -3,6 +3,7 @@ import { X, Upload, Trash2, Pencil } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { delete_profile_image, upload_images } from "../../features/profile.features/rename.user.profile";
 import toast from "react-hot-toast";
+import { t } from "i18next";
 export default function Modal({ isOpen, onClose, imageUrl, userId }) {
   const { user } = useSelector((state) => state.user);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -22,13 +23,13 @@ export default function Modal({ isOpen, onClose, imageUrl, userId }) {
   const handleUploadClick = () => fileInputRef.current.click();
     const handleDispatchUpload = () => {
     if (!selectedFile) {
-    toast.error("Iltimos, rasm tanlang"); 
+       toast.error(t('profile.pleaseSelectImg'));
     return;
     }
 
   
   if (!selectedFile.type.startsWith("image/")) {
-       toast.error("Iltimos, faqat rasm faylini tanlang");
+       toast.error(t('profile.pleaseSelectImg'));
     setSelectedFile(null);
     return;
   }

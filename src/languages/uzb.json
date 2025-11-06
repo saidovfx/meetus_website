@@ -1,96 +1,185 @@
 {
-    "cta": {
-    "title": "Hozir Boshlang",
-    "description": "10 daqiqa ichida profilingizni yarating va imkoniyatlardan foydalaning",
-    "button": "Bepul Ro'yxatdan O'tish"
-  },
-    "auth": {
-    "email": "Elektron pochta",
-    "password": "Parol",
-    "confirmPassword": "Parolni tasdiqlash",
-    "forgotPassword": "Parolni unutdingizmi?",
-    "rememberMe": "Meni eslab qol",
-    "noAccount": "Hisobingiz yo'qmi?",
-    "hasAccount": "Hisobingiz bormi?",
-    "signupNow": "Hozir ro'yxatdan o'ting",
-    "loginNow": "Hozir kiring"
-  },
-  "features": {
-    "title": "Platforma Xususiyatlari",
-    "subtitle": "Nima uchun MeetUs tanlash kerak?",
-    "items": {
-      "profile": {
-        "title": "Professional Profil",
-        "description": "To'liq profil yarating va ish beruvchilar e'tiborini jalb qiling"
-      },
-      "search": {
-        "title": "Aqlli Qidiruv",
-        "description": "Mos keladigan vakansiyalarni topish uchun kuchli qidiruv tizimi"
-      },
-      "security": {
-        "title": "Xavfsiz Muloqot",
-        "description": "Ish beruvchilar bilan xavfsiz va samarali muloqot"
-      },
-      "analytics": {
-        "title": "Detallı Analitika",
-        "description": "Profil ko'rishlar va ariza statistikasini kuzating"
-      },
-      "mobile": {
-        "title": "Mobil Ilova",
-        "description": "Istalgan joydan kirish uchun mobil ilova"
-      },
-      "support": {
-        "title": "24/7 Qo'llab-quvvatlash",
-        "description": "Har qanday savol uchun doimiy qo'llab-quvvatlash"
-      }
-    }
-  },
-    "hero": {
-    "title": "Professional Ish Platformasi",
-    "subtitle": "MeetUs bilan karyerangizni rivojlantiring",
-    "description": "Dunyo miqyosidagi kompaniyalar va talantlar o'rtasida bog'lovchi. Eng yaxshi ish imkoniyatlari va mutaxassislarni toping.",
-    "primaryButton": "Boshlash",
-    "secondaryButton": "Demo Ko'rish",
-    "metrics": {
-      "companies": "Kompaniyalar",
-      "jobs": "Vakansiyalar",
-      "candidates": "Nomzodlar",
-      "hires": "Muvaffaqiyatli ishga qabul"
-    }
-  },
- "nav": {
-    "home": "Bosh Sahifa",
+  "nav": {
+    "home": "Bosh sahifa",
     "features": "Xususiyatlar",
     "pricing": "Narxlar",
     "docs": "Hujjatlar",
     "login": "Kirish",
-    "signup": "Ro'yxatdan o'tish",
+    "signup": "Ro‘yxatdan o‘tish",
     "profile": "Profil",
     "jobs": "Ishlar",
     "companies": "Kompaniyalar",
     "blog": "Blog",
-    "plans": "Tariflar",
-    "contact": "Aloqa"
+    "plans": "Rejalar",
+    "contact": "Bog‘lanish"
   },
   "language": {
-    "change": "Tilni o'zgartirish",
-    "uzbek": "O'zbek",
+    "change": "Tilni o‘zgartirish",
+    "uzbek": "O‘zbek",
     "russian": "Rus",
     "tajik": "Tojik",
     "english": "Ingliz"
   },
-    "footer": {
-    "description": "Meetus mutaxassislar va kompaniyalarni bog'lab, hamkorlik qilish va global rivojlanishga yordam beradi.",
+  "hero": {
+    "title": "Professional ish platformasi",
+    "subtitle": "MeetUs bilan karyerangizni rivojlantiring",
+    "description": "Jahon miqyosidagi kompaniyalarni mutaxassislar bilan bog‘laymiz. Eng yaxshi ish imkoniyatlari va mutaxassislarni toping.",
+    "primaryButton": "Boshlash",
+    "secondaryButton": "Demo ko‘rish",
+    "metrics": {
+      "companies": "Kompaniyalar",
+      "jobs": "Ishlar",
+      "candidates": "Nomzodlar",
+      "hires": "Muvaffaqiyatli ishga qabul qilinganlar"
+    }
+  },
+  "features": {
+    "title": "Platforma xususiyatlari",
+    "subtitle": "Nega MeetUsni tanlash kerak?",
+    "items": {
+      "profile": {
+        "title": "Professional profil",
+        "description": "To‘liq profil yarating va ish beruvchilarning e’tiborini jalb qiling"
+      },
+      "search": {
+        "title": "Aqlli qidiruv",
+        "description": "Mos keladigan vakansiyalarni topish uchun kuchli qidiruv tizimi"
+      },
+      "security": {
+        "title": "Xavfsiz muloqot",
+        "description": "Ish beruvchilar bilan xavfsiz va samarali muloqot"
+      },
+      "analytics": {
+        "title": "Batafsil tahlillar",
+        "description": "Profil ko‘rinishlari va ariza statistikalarini kuzatish"
+      },
+      "mobile": {
+        "title": "Mobil ilova",
+        "description": "Har joydan foydalanish uchun mobil ilova"
+      },
+      "support": {
+        "title": "24/7 yordam",
+        "description": "Har qanday savol uchun doimiy yordam"
+      }
+    }
+  },
+  "cta": {
+    "title": "Hozir boshlang",
+    "description": "Profilingizni 10 daqiqada yarating va imkoniyatlardan foydalaning",
+    "button": "Bepul ro‘yxatdan o‘tish"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Parol",
+    "confirmPassword": "Parolni tasdiqlash",
+    "forgotPassword": "Parolni unutdingizmi?",
+    "rememberMe": "Meni eslab qol",
+    "noAccount": "Hisobingiz yo‘qmi?",
+    "hasAccount": "Allaqachon hisobingiz bormi?",
+    "signupNow": "Hozir ro‘yxatdan o‘tish",
+    "loginNow": "Kirish"
+  },
+  "footer": {
+    "description": "MeetUs mutaxassislar va bizneslarni global miqyosda bog‘lash, hamkorlik qilish va rivojlanishga yordam beradi.",
     "newsletter": "Yangiliklar",
-    "subscribe": "Obuna bo'lish",
+    "subscribe": "Obuna bo‘lish",
     "rights": "Barcha huquqlar himoyalangan",
     "product": "Mahsulot",
     "company": "Kompaniya",
     "support": "Yordam",
     "legal": "Huquqiy",
     "privacy": "Maxfiylik siyosati",
-    "terms": "Foydalanish shartlari",
+    "terms": "Xizmat shartlari",
     "cookies": "Cookies",
-    "contact": "Aloqa"
+    "contact": "Bog‘lanish"
+  },
+  "authSelect": {
+    "welcome": "MeetUsga xush kelibsiz",
+    "desc": "Iltimos, hisob turini tanlang:",
+    "business": "Biznes hisobi",
+    "job": "Ish hisobi (freelancer)",
+    "warning": "Ro‘yxatdan o‘tganingizdan so‘ng hisob turini o‘zgartira olmaysiz. To‘g‘ri turini tanlang.",
+    "submit": "Tanlash va ro‘yxatdan o‘tish",
+    "error": "Iltimos, hisob turini tanlang!"
+  },
+  "signup": {
+    "intro": "Keling boshlaylik",
+    "emailplace": "masalan, jamesbrown@gmail.com",
+    "username": "Foydalanuvchi nomi",
+    "usernameplace": "masalan, james_dev",
+    "passwordplace": "Parolingizni kiriting",
+    "confirmPasswordplace": "Parolingizni tasdiqlang",
+    "agreeTerms": "Ro‘yxatdan o‘tganingiz bilan siz quyidagilarga rozilik bildirasiz",
+    "signupGoogle": "Google orqali ro‘yxatdan o‘tish"
+  },
+  "serverError": {
+    "error": "Nimadir xato bo‘ldi. Iltimos, keyinroq qayta urinib ko‘ring.",
+    "selectError": "Siz foydalanuvchi turini tanlamadingiz",
+    "usernameExist": "Bu foydalanuvchi nomi mavjud",
+    "worseConfirmPassword": "Parolni tasdiqlash mos kelmaydi",
+    "worseEmail": "Email noto‘g‘ri yoki xato formatda",
+    "usernameLength": "Foydalanuvchi nomi kamida 3 ta belgidan iborat bo‘lishi kerak",
+    "passwordlength": "Parol kamida 6 ta belgidan iborat bo‘lishi kerak",
+    "noCode": "Kod mavjud emas yoki mos kelmaydi",
+    "codeExpired": "Kod muddati tugagan",
+    "codeWorse": "Kod 6 raqamli bo‘lishi kerak"
+  },
+  "success": {
+    "signedUp": "Ro‘yxatdan o‘tish muvaffaqiyatli",
+    "codeSent": "Sizga kod yuborildi!"
+  },
+  "verifyCode": {
+    "verifyCode": "Email tasdiqlash kodi",
+    "desc": "Sizga 6 xonali tasdiqlash kodi yuborildi. Iltimos, inbox yoki spam papkani tekshirib, kodni kiriting.",
+    "warning": "Kod kelmadi? Yangi kod yuborish uchun bosing.",
+    "sendAgain": "Yana yuborish",
+    "confirmCode": "Kod tasdiqlash",
+    "timeExpired": "Vaqt tugadi"
+  },
+  "login": {
+    "loggedIn": "Kirish muvaffaqiyatli",
+    "passwordMatch": "Parol noto‘g‘ri",
+    "userNotFound": "Foydalanuvchi topilmadi",
+    "pleaseDetails": "Davom etish uchun hisob ma’lumotlarini kiriting",
+    "welcomeBack": "Qaytib kelganingizdan xursandmiz!",
+    "emailNoExists": "Bu email mavjud emas",
+    "forgotPassword": "Parolni unutdingizmi",
+    "forgotDesc": "Iltimos, o‘z email manzilingizni kiriting. Tasdiqlash kodi yuboriladi.",
+    "submitSendCode": "Kod yuborish",
+    "backToLogin": "Kirishga qaytish",
+    "successfullyVerified": "Muvaffaqiyatli tasdiqlandi",
+    "successfullyPasswordChanged": "Parol muvaffaqiyatli o‘zgartirildi",
+    "loginWithoutChanges": "Parolni o‘zgartirmasdan hisobga kirish",
+    "codeVerifyDesc": "Agar parolni unutgan bo‘lsangiz, uni yangisiga o‘zgartiring yoki parolni o‘zgartirmasdan kirish tugmasini bosing"
+  },
+  "changePassword": {
+    "title": "Parolni o‘zgartiring",
+    "description": "Iltimos, yangi parolingizni kiriting va tasdiqlang.",
+    "newPassword": "Yangi parol",
+    "confirmPassword": "Parolni tasdiqlash",
+    "fillAll": "Iltimos, barcha maydonlarni to‘ldiring.",
+    "shortPassword": "Parol kamida 6 belgidan iborat bo‘lishi kerak.",
+    "mismatch": "Parollar mos kelmayapti.",
+    "save": "Yangi parolni saqlash",
+    "success": "Parol muvaffaqiyatli o‘zgartirildi!",
+    "backToLogin": "Kirishga qaytish",
+    "loginWithoutChanges": "Parolni o‘zgartirmasdan kirish"
+  },
+  "profile": {
+    "fullName": "To‘liq ism",
+    "followers": "Obunachilar",
+    "following": "Obuna bo‘lganlar",
+    "projects": "Loyihalar",
+    "username": "Foydalanuvchi nomi",
+    "vacancy": "Vakansiya",
+    "deletedProfileImg": "Profil rasmi muvaffaqiyatli o‘chirildi",
+    "profileImgUpload": "Profil rasmi yangilandi!",
+    "myProfile": "Mening profilim",
+    "jobs": "Ishlar",
+    "companiesAndUsers": "Kompaniyalar va foydalanuvchilar",
+    "messages": "Xabarlar",
+    "history": "Tarix",
+    "settings": "Sozlamalar",
+    "pleaseSelectImg": "Iltimos, faqat rasm faylini tanlang"
   }
 }

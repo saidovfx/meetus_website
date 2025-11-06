@@ -186,7 +186,8 @@
     "companiesAndUsers": "Companies & Users",
     "messages": "Messages",
     "history": "History",
-       "settings": "Settings"
+       "settings": "Settings",
+       "pleaseSelectImg":"Please select an image file only"
   }
 
 
