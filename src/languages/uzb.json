@@ -122,7 +122,8 @@
     "passwordlength": "Parol kamida 6 ta belgidan iborat bo‘lishi kerak",
     "noCode": "Kod mavjud emas yoki mos kelmaydi",
     "codeExpired": "Kod muddati tugagan",
-    "codeWorse": "Kod 6 raqamli bo‘lishi kerak"
+    "codeWorse": "Kod 6 raqamli bo‘lishi kerak",
+    "notAuthorized":"You are not authorized. Please log in again."
   },
   "success": {
     "signedUp": "Ro‘yxatdan o‘tish muvaffaqiyatli",

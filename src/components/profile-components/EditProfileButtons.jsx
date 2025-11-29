@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { changePage } from "../../features/navigator.features/navigator";
 import SocialModal from "./SocialModal";
 
+
+
+
 export default function EditProfileButtons() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
