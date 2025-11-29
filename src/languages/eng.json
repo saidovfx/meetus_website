@@ -229,6 +229,13 @@
     "noLinks": "No social links added yet."
 
 
+  },
+   "posts":{
+  "noPostsDesc":" You haven't shared any posts yet. Start your journey by creating your first post!",
+  "noPosts":"Empty now, amazing later — share your first post!",
+  "createPosts":"Create first post !"
+
+
   }
 
 

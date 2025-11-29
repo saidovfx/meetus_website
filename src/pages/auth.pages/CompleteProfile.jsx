@@ -4,7 +4,7 @@ import { t } from 'i18next';
 import { useNavigate } from 'react-router-dom';
 import { usernameRegex } from '../../config/testRegex';
 import Stuck_image from '../../images/login_image.png';
-import { Loader2 } from 'lucide-react'; 
+import {  } from 'lucide-react'; 
 import { complete_myprofile } from '../../features/auth.features/complete.user.auth';
 export default function CompleteProfile() {
   const complData = useSelector((state) => state.complete);

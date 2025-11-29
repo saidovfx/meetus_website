@@ -9,6 +9,7 @@ import router from '../../config/router.app'
 import { Eye, EyeOff ,Chrome} from 'lucide-react'
 import Google from '../../images/google-logo.webp'
 import { usernameRegex,emailRegex } from '../../config/testRegex'
+import { Loader2 } from 'lucide-react'
 export default function SignUp() {
   const selectedType = useSelector(state => state.auth)
   const [email, setEmail] = useState('')
@@ -160,7 +161,7 @@ const getInputClass = (field) => {
             >
 
         
-              {loading ? 'Loading...' : t('nav.signup')}
+              {loading ? <Loader2 className="animate-spin mx-auto" />  : t('nav.signup')}
             </button>
 
                        <a

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Home, Briefcase, Users, MessageCircle, Clock, Settings } from 'lucide-react';
 import { changePage } from '../../features/navigator.features/navigator.js';
+import { useNavigate } from 'react-router-dom';
 import ProfileMain from './ProfileMain';
 import Jobs from '../jobs.pages/Jobs.jsx';
 import Company from '../company.pages/Company.jsx';
@@ -17,11 +18,12 @@ import EditLocation from '../../components/profile-components/EditLocation.jsx';
 import RenameFullname from '../../components/profile-components/EditFullname.jsx';
 import EditBirthdate from '../../components/profile-components/EditBirthdate.jsx';
 import AddSocialLink from '../../components/profile-components/AddSocialLink.jsx';
+import router from '../../config/router.app.js'
 export default function StuckNavigatorPage() {
   const dispatch = useDispatch();
   const { page } = useSelector((state) => state.navigator);
-console.log(page);
-
+  const {user,loading}=useSelector((state)=>state.user)
+const navigate=useNavigate()
   const navItems = [
     { name: t('profile.myProfile'), path: 'profile', icon: <Home size={20} /> },
     { name:t('profile.jobs') , path: 'jobs', icon: <Briefcase size={20} /> },
@@ -29,8 +31,15 @@ console.log(page);
     { name: t('profile.messages'), path: 'chats', icon: <MessageCircle size={20} /> },
     { name: t('profile.history'), path: 'history', icon: <Clock size={20} /> },
   ];
+React.useEffect(()=>{
+  if(!loading){
+  if(!user?.email){ 
+    return navigate(router.intro)
+}
+}
+},[])
 
-  return (
+  return (  
     <div className="flex h-screen bg-gradient-to-r from-[#e6f0fa] to-[#f9fbff]">
       <aside className="hidden md:flex flex-col w-72 bg-white/80 backdrop-blur-lg shadow-2xl border-r border-gray-200 p-5">
         <div className="flex items-center gap-3 mb-8">
@@ -95,6 +104,7 @@ console.log(page);
     {page === 'renamefullname' && <RenameFullname className="p-6 md:p-10" />}
     {page === 'renamebirthdate' && <EditBirthdate className="p-6 md:p-10" />}
     {page==='addsocialLink' && <AddSocialLink className="p-6 md:p-10" />}
+    
   </div>
 </main>
 
