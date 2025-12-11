@@ -28,7 +28,7 @@ export default function Modal({ isOpen, onClose, imageUrl, userId }) {
     }
 
   
-  if (!selectedFile.type.startsWith("image/")) {
+    if (!selectedFile.type.startsWith("image/")) {
        toast.error(t('profile.pleaseSelectImg'));
     setSelectedFile(null);
     return;

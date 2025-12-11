@@ -233,7 +233,38 @@
    "posts":{
   "noPostsDesc":" You haven't shared any posts yet. Start your journey by creating your first post!",
   "noPosts":"Empty now, amazing later — share your first post!",
-  "createPosts":"Create first post !"
+  "createPosts":"Create first post!",
+"Web-Development": "Web Development",
+    "Mobile-Development": "Mobile Development",
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Fullstack": "Fullstack",
+    "UI-UX": "UI/UX Design",
+    "Ecommerce": "E-commerce",
+    "Landing-Page": "Landing Page",
+    "SaaS": "SaaS Project",
+    "Chat-App": "Chat / Messaging App",
+    "AI-ML": "AI / Machine Learning",
+    "Data-Visualization": "Data Visualization",
+    "API-Development": "API Development",
+    "Game-Development": "Game Development",
+    "Desktop-App": "Desktop Application",
+    "IoT-Project": "IoT Project",
+    "Automation": "Automation System",
+    "Cloud-Project": "Cloud-based Project",
+    "Portfolio-Site": "Portfolio Website",
+    "Educational-App": "Educational App",
+    "SMM": "Social Media Management",
+    "Content-Creation": "Content Creation",
+    "Graphic-Design": "Graphic Design",
+    "Video-Editing": "Video Editing",
+    "Photography": "Photography",
+    "Branding": "Branding",
+    "Business-Plan": "Business Plan & Strategy",
+    "Consulting": "Consulting",
+    "Translation": "Translation",
+    "Other": "Other"
+  
 
 
   }

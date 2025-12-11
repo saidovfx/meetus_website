@@ -182,5 +182,38 @@
     "history": "Tarix",
     "settings": "Sozlamalar",
     "pleaseSelectImg": "Iltimos, faqat rasm faylini tanlang"
+  },
+  "posts":{
+  "Web-Development": "Web dasturlash",
+    "Mobile-Development": "Mobil dasturlash",
+    "Frontend": "Frontend",
+    "Backend": "Backend",
+    "Fullstack": "Fullstack",
+    "UI-UX": "UI/UX dizayn",
+    "Ecommerce": "Internet-do‘konlar",
+    "Landing-Page": "Landing sahifa",
+    "SaaS": "SaaS loyiha",
+    "Chat-App": "Chat / Xabar almashish ilovasi",
+    "AI-ML": "Sun'iy intellekt / Mashina o‘rganish",
+    "Data-Visualization": "Ma'lumotlarni vizualizatsiya qilish",
+    "API-Development": "API yaratish",
+    "Game-Development": "O‘yin yaratish",
+    "Desktop-App": "Kompyuter dasturi",
+    "IoT-Project": "IoT loyihasi",
+    "Automation": "Avtomatlashtirish",
+    "Cloud-Project": "Bulutli loyiha",
+    "Portfolio-Site": "Portfolio sayti",
+    "Educational-App": "Ta’lim ilovasi",
+    "SMM": "SMM — Ijtimoiy tarmoqlar boshqaruvi",
+    "Content-Creation": "Kontent yaratish",
+    "Graphic-Design": "Grafik dizayn",
+    "Video-Editing": "Video montaj",
+    "Photography": "Fotografiya",
+    "Branding": "Brending",
+    "Business-Plan": "Biznes rejasi va strategiya",
+    "Consulting": "Konsalting",
+    "Translation": "Tarjima",
+    "Other": "Boshqa"
+
   }
 }

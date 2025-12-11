@@ -1,200 +1,300 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { X, Upload, FileText, Tag, MapPin, Sparkles, HelpCircle, ArrowRight ,FileSpreadsheet} from "lucide-react";
+import toast from "react-hot-toast";
+import { MediaPreview } from "./ModalPreview";
+import { TagsInput } from "./ModalPreview";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createProject_images,
-  createProject_video,
-  cancelUpload,
-} from "../../features/post.feautures/post.project";
+import { createProject_images, createProject_video } from "../../features/post.feautures/post.project";
+import router from "../../config/router.app";
+import { useNavigate } from "react-router-dom";
+import { setDraft } from "../../features/post.feautures/post.details";
+export default function CreatePost() {
+   const {selectedUsers}=useSelector(state=>state.search)
+const fullState =useSelector((state)=>state.postDetails)
 
-export default function CreateProject() {
+
+  const [title, setTitle] = useState("");
+  const [fullDescription, setFullDescription] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState("");
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [mediaType, setMediaType] = useState("");
+  const [wordCount, setWordCount] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [video, setVideo] = useState();
+
+  const navigate=useNavigate()
   const dispatch = useDispatch();
-  const { progress, project_loading } = useSelector(
-    (state) => state.project
-  );
+  const { project_loading, project_success } = useSelector((state) => state.project);
 
-  const [files, setFiles] = useState([]);
-  const [type, setType] = useState("image");
+  const fileInputRef = useRef(null);
 
-  const [values, setValues] = useState({
-    title: "",
-    desc: "",
-    link: "",
-    githubLink: "",
-    location: "",
-    tags: "",
-  });
+  useEffect(() => setWordCount(shortDescription.length), [shortDescription]);
+  useEffect(() => setIsSubmitting(project_loading), [project_loading]);
+console.log(fullState);
 
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+useEffect(()=>{
+  setTitle(fullState?.title ||"")
+  setSelectedFiles(fullState?.images || [])
+  setVideo(fullState?.video ||"")
+  setTags(fullState.tags ||[])
+ setFullDescription(fullState.fullDescription ||"")
+ setShortDescription(fullState.shortDescription||"")
+ setMediaType(fullState.mediaType ||"")
+},[])
+
+
+useEffect(()=>{
+  dispatch(setDraft({
+    video,title,
+    images:selectedFiles,
+    title,
+    shortDescription,
+    fullDescription,
+    tags,
+    mediaType
+  }))
+},[title,shortDescription,fullDescription,selectedFiles,mediaType,tags,video,mediaType])
+
+
+
+
+
+
+
+
+
+
+  const handleUploadClick = () => {
+    fileInputRef.current.value = "";
+    fileInputRef.current.click();
   };
+
+
+
 
   const handleFileChange = (e) => {
-    const selected = Array.from(e.target.files).slice(0, 5);
-    setFiles(selected);
-  };
+    const file = e.target.files[0];
+    if (!file) return;
 
-  const handleSubmit = () => {
-    if (files.length === 0) return;
+    const isImage = file.type.startsWith("image");
+    const isVideo = file.type.startsWith("video");
 
-    const payload = { ...values, file: files };
+    if (isVideo) {
+      if (mediaType && selectedFiles.length) return toast.error("Remove previous media first.");
+      setVideo(file);
+      setSelectedFiles([file]);
+      setMediaType("video");
+      toast.success("Video selected!");
+    }
 
-    if (type === "image") {
-        console.log(files);
-        
-      dispatch(createProject_images(payload));
-    } else {
-      dispatch(createProject_video({ ...values, file: files[0] }));
+    if (isImage) {
+      if (mediaType === "video" && selectedFiles.length) return toast.error("Remove video first to upload images.");
+      if (selectedFiles.length >= 5) return toast.error("Maximum 5 images allowed.");
+      setSelectedFiles((prev) => [...prev, file]);
+      setMediaType("image");
+      toast.success("Image added!");
     }
   };
 
+  const handleRemoveFile = (i) => {
+    const newFiles = selectedFiles.filter((_, idx) => idx !== i);
+    setSelectedFiles(newFiles);
+    if (!newFiles.length) setMediaType("");
+  };
+
+  const addTag = (e) => {
+    if (e.key === "Enter" && tagInput.trim()) {
+      e.preventDefault();
+      if (tags.includes(tagInput.trim().toLowerCase())) return toast.error("Tag exists");
+      if (tags.length >= 10) return toast.error("Max 10 tags");
+      setTags([...tags, tagInput.trim().toLowerCase()]);
+      setTagInput("");
+    }
+  };
+
+  const removeTag = (i) => setTags(tags.filter((_, idx) => idx !== i));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title.trim()) return toast.error("Enter a title");
+
+    const payload = {
+      title,
+      shortDescription,
+      fullDescription,
+      link:fullState?.link,
+      github:fullState?.github,
+      location,
+      tags,
+      skills:["vedio-making ","editing"],
+      category:"web-development",
+      collaborators:selectedUsers,
+      status:'published',
+      youtube:fullState?.youtube,
+      live:fullState?.live,
+    };
+
+    if (mediaType === "video") {
+      console.log(video);
+      
+      dispatch(createProject_video({data:payload, file:video}));
+    } else {
+      dispatch(createProject_images({data:payload,   file: mediaType === "image" ? selectedFiles : video ?   [video] : [],}));
+    }
+  };
+
+
+
+
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-base-100 shadow-lg rounded-xl p-6 border border-gray-200">
-      <h2 className="text-xl font-semibold mb-4">Create New Project</h2>
+<div className="min-h-screen bg-gradient-to-br from-white to-[#e6f0fa] p-4 md:p-6">
+  <div className="max-w-6xl mx-auto bg-white rounded-3xl p-6 md:p-10">
+    <h1 className="text-3xl md:text-4xl font-bold text-[#1a1f36] text-center mb-6">
+      Create New Post
+    </h1>
 
-      <label className="border border-dashed border-gray-400 p-5 rounded-xl w-full flex flex-col items-center justify-center cursor-pointer hover:bg-gray-50 transition">
-        <input
-          type="file"
-          hidden
-          multiple
-           name="images"
-          accept="image/*,video/*"
-          capture="environment" // camera enable
-          onChange={handleFileChange}
-        />
-        <span className="text-gray-500">
-          {files.length === 0
-            ? "Click or Capture to upload"
-            : `${files.length} file selected`}
-        </span>
-      </label>
+    <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row gap-8">
+      <div className="lg:w-2/3 space-y-6">
 
-      {/* Preview */}
-      {files.length > 0 && (
-        <div className="grid grid-cols-2 gap-3 mt-4">
-          {files.map((file, index) =>
-            file.type.startsWith("video") ? (
-              <video
-                key={index}
-                src={URL.createObjectURL(file)}
-                controls
-                className="rounded-lg h-32 w-full object-cover"
-              />
-            ) : (
-              <div key={index} className="relative group">
-                <img
-                  src={URL.createObjectURL(file)}
-                  className="rounded-lg h-32 w-full object-cover border"
-                />
-                <button
-                  className="btn btn-xs btn-error absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition"
-                  onClick={() =>
-                    setFiles((prev) => prev.filter((_, i) => i !== index))
-                  }
-                >
-                  ✕
-                </button>
-              </div>
-            )
+        <div>
+          {selectedFiles.length ? (
+            <MediaPreview files={selectedFiles} video={video} type={mediaType} removeFile={handleRemoveFile} />
+          ) : (
+            <div
+              onClick={handleUploadClick}
+              className="border-2 border-dashed border-[#bcd7f5] rounded-2xl p-12 text-center cursor-pointer bg-[#f8fbff] hover:bg-[#e6f0fa] transition-all duration-200"
+            >
+              <Upload className="w-16 h-16 mx-auto mb-4 text-[#4fc3f7]" />
+              <p className="text-[#1a1f36]">Click to upload media (Max 5 images or 1 video)</p>
+            </div>
           )}
-        </div>
-      )}
-
-      {/* Select Type */}
-      <select
-        className="select select-bordered w-full mt-4"
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-      >
-        <option value="image">Image Post (max 5)</option>
-        <option value="video">Video Post</option>
-      </select>
-
-      {/* Inputs */}
-      <div className="mt-4 space-y-3">
-        <input
-          className="input input-bordered w-full"
-          placeholder="Project Title"
-          name="title"
-          onChange={handleChange}
-        />
-        <textarea
-          className="textarea textarea-bordered w-full"
-          placeholder="Description"
-          name="desc"
-          onChange={handleChange}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="Location"
-          name="location"
-          onChange={handleChange}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="Live Link"
-          name="link"
-          onChange={handleChange}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="Github Link"
-          name="githubLink"
-          onChange={handleChange}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="Tags (comma separated)"
-          name="tags"
-          onChange={handleChange}
-        />
-      </div>
-
-      {/* Progress */}
-      {project_loading && (
-        <div className="mt-4">
-          <progress
-            className="progress progress-primary w-full"
-            value={progress}
-            max="100"
-          ></progress>
-          <p className="text-xs mt-1 text-gray-500">
-            Uploading... {progress}%
-          </p>
-        </div>
-      )}
-
-      {/* Buttons */}
-      <div className="flex gap-3 mt-6">
-        <button
-          className="btn btn-primary w-full"
-          disabled={project_loading}
-          onClick={handleSubmit}
-        >
-          Publish
-        </button>
-
-        {project_loading && (
-          <button
-            className="btn btn-outline btn-error w-full"
-            onClick={() => dispatch(cancelUpload())}
-          >
-            Cancel
+          <button 
+            onClick={handleUploadClick} 
+            className="flex items-center justify-center w-full mt-3 px-4 py-2 bg-gradient-to-r from-[#4fc3f7] to-[#0288d1] text-white rounded-xl text-sm hover:opacity-90 transition duration-200">
+            <Upload className="w-5 h-5 mr-2" /> Upload file
           </button>
-        )}
-      </div>
+          <input type="file" accept="image/*,video/*" multiple ref={fileInputRef} onChange={handleFileChange} className="hidden" />
+        </div>
+
+        <div>
+          <FileText className="w-5 h-5 text-[#4fc3f7] mb-1" />
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Post title..."
+            className="w-full p-3  border-t-0 border-l-0 border-r-0 rounded-xl bg-[#f8fbff] border border-[#aab5c4] focus:outline-none "
+            required
+          />
+        </div>
+
+        <div>
+          <FileText className="w-5 h-5 text-[#4fc3f7] mb-1" />
+          <textarea
+            value={shortDescription}
+            onChange={(e) => setShortDescription(e.target.value)}
+            placeholder="Short description..."
+            className="w-full h-28 p-3 rounded-xl border-b-0 border-r-0 border-t-0 bg-[#f8fbff] border border-[#9da9b6] focus:outline-none "
+          />
+          <div className={`text-sm ${wordCount < 350 ? "text-warning" : "text-success"}`}>
+            {wordCount}/350 words
+          </div>
+        </div>
+
+
+        <div>
+      <FileSpreadsheet className="w-5 h-5 text-gray-500 mb-1" />
+
+          <textarea
+            value={fullDescription}
+            onChange={(e) => setFullDescription(e.target.value)}
+            placeholder="Full description..."
+            className="w-full h-40 p-3 rounded-xl  border-b-0 border-r-0 border-t-0 bg-[#f8fbff] border border-[#bcd7f5] focus:outline-none "
+          />
+        </div>
+
+     
+
+  
+        <TagsInput tags={tags} tagInput={tagInput} setTagInput={setTagInput} addTag={addTag} removeTag={removeTag} />
+<>
+
+  <div
+    onClick={() => navigate(router.collaborator)}
+    className="flex items-center justify-between px-3 py-3 rounded-lg 
+               bg-gray-50 hover:bg-gray-100 cursor-pointer select-none
+               transition duration-150 w-full"
+  >
+    <span className="text-[14px] text-gray-500 font-normal">
+      Select collaborator
+    </span>
+    <div className="flex items-center gap-2">
+      <span className="text-[13px] text-gray-500">{selectedUsers?.length}</span>
+      <ArrowRight size={18} className="text-gray-400" />
     </div>
-    // <div class="flex w-52 flex-col gap-4">
-    //    <div class="skeleton h-32 w-full"></div>
-    //    <div class="skeleton h-4 w-28"></div>
-    //    <div class="skeleton h-4 w-full"></div>
-    //    <div class="skeleton h-4 w-full"></div>
-    //      <div class="skeleton h-32 w-full"></div>
-    //    <div class="skeleton h-4 w-28"></div>
-    //    <div class="skeleton h-4 w-full"></div>
-    //    <div class="skeleton h-4 w-full"></div>  <div class="skeleton h-32 w-full"></div>
-    //    <div class="skeleton h-4 w-28"></div>
-    //    <div class="skeleton h-4 w-full"></div>
-    //    <div class="skeleton h-4 w-full"></div>
-    // </div>
+  </div>
+
+  <div
+    onClick={() => navigate(router.addpostlink)}
+
+    className="flex items-center justify-between px-3 py-3 rounded-lg 
+               bg-gray-50 hover:bg-gray-100 cursor-pointer select-none
+               transition duration-150 w-full"
+  >
+    <span className="text-[14px] text-gray-500 font-normal">
+      Add additional links for project
+    </span>
+    <ArrowRight size={18} className="text-gray-400" />
+  </div>
+
+
+  <div
+  onClick={()=>navigate(router.addcategorypost)}
+    className="flex items-center justify-between px-3 py-3 rounded-lg 
+               bg-gray-50 hover:bg-gray-100 cursor-pointer select-none
+               transition duration-150 w-full"
+  >
+    <span className="text-[14px] text-gray-500 font-normal">
+      Add category
+    </span>
+    <div className="flex items-center gap-2">
+      <ArrowRight size={18} className="text-gray-400" />
+    </div>
+  </div>
+
+  <div
+    className="flex items-center justify-between px-3 py-3 rounded-lg 
+               bg-gray-50 hover:bg-gray-100 cursor-pointer select-none
+               transition duration-150 w-full"
+  >
+    <span className="text-[14px] text-gray-500 font-normal">
+      Add project skills
+    </span>
+    <ArrowRight size={18} className="text-gray-400" />
+  </div>
+</>
+
+
+
+      
+        <div className="flex gap-4 mt-4">
+          <button type="submit" className={`flex-1 px-4 py-2 bg-gradient-to-r from-[#4fc3f7] to-[#0288d1] text-white rounded-xl text-sm hover:opacity-90 transition duration-200 ${isSubmitting ? "loading" : ""}`} disabled={isSubmitting}>
+            <Sparkles className="w-5 h-5 mr-2" /> {isSubmitting ? "Creating..." : "Publish"}
+          </button>
+          <button type="button" className="flex-1 px-4 py-2 border border-[#bcd7f5] rounded-xl text-[#1a1f36] hover:bg-[#f0f7ff] transition-all duration-200" onClick={() => {
+            setTitle(""); setShortDescription(""); setFullDescription(""); setTags([]); setTagInput(""); setSelectedFiles([]); setMediaType(""); toast("Cleared 🗑️");
+          }}>
+            <X className="w-5 h-5 mr-2" /> Clear
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
   );
 }

@@ -3,10 +3,11 @@ import ProfileHeader from "../../components/profile-components/ProfileHeader";
 import EditProfileButtons from "../../components/profile-components/EditProfileButtons";
 import GetMyPosts from "../../components/post-components/GetMyPosts";
 import GetMyProjects from "../../components/post-components/GetMyProjects";
+import { useSelector } from "react-redux";
 
 export default function ProfileMain() {
   const [activeTab, setActiveTab] = useState("posts");
-
+const {user}=useSelector(state=>state.user)
   return (
     <div className="w-full min-h-screen bg-gray-50">
       <ProfileHeader />
@@ -15,7 +16,7 @@ export default function ProfileMain() {
         <EditProfileButtons />
       </div>
 
-      <div className="mt-6 px-6 sm:px-12">
+      { user?.role=="business" && <div className="mt-6 px-6 sm:px-12">
         <div className="tabs tabs-boxed w-full justify-start">
           <a
             className={`tab ${activeTab === "posts" ? "tab-active" : ""}`}
@@ -30,12 +31,13 @@ export default function ProfileMain() {
             Projects
           </a>
         </div>
-      </div>
+      </div>}
 
-      <div className="mt-4 px-6 sm:px-12">
+     { user?.role =="business" ?(<div className="mt-4 px-6 sm:px-12">
         {activeTab === "posts" && <GetMyPosts />}
         {activeTab === "projects" && <GetMyProjects />}
-      </div>
+    
+      </div>) :     <GetMyPosts/>}
     </div>
   );
 }

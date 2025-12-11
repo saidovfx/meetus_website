@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PostCard from "./PostCards";
+import PostCard from "./Tools/PostCards";
 import { get_myproject } from "../../features/post.feautures/post.project";
 import Image from '../../images/login_image.png'
 import { t } from "i18next";
+import { changePage } from "../../features/navigator.features/navigator";
 export default function GetMyPosts() {
   const dispatch = useDispatch();
   const { getproject_loading, myprojects } = useSelector((state) => state.project);
@@ -55,15 +56,17 @@ if (!myprojects?.posts?.length)
       {t('posts.noPostsDesc')}
       </p>
 
-      <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+      <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" onClick={()=>dispatch(changePage({page:"createPost"}))}>
     {t('posts.createPosts')}
       </button>
     </div>
   );
+console.log(myprojects.posts);
 
 
   return (
    <div className="max-w-7xl mx-auto p-4">
+    
       <div className="grid gap-6 
                       grid-cols-1 
                       sm:grid-cols-2 

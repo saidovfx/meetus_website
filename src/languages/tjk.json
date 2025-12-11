@@ -181,5 +181,40 @@
   "history": "Таърих",
   "settings": "Танзимот",
   "pleaseSelectImg": "Лутфан танҳо файли тасвириро интихоб кунед"
+},
+"posts":{
+    "posts":{
+  "Web-Development": "Барномасозии веб",
+    "Mobile-Development": "Барномасозии мобилӣ",
+    "Frontend": "Фронтенд",
+    "Backend": "Бекенд",
+    "Fullstack": "Фулстак",
+    "UI-UX": "Дизайни UI/UX",
+    "Ecommerce": "Дӯкони онлайн",
+    "Landing-Page": "Саҳифаи лендинг",
+    "SaaS": "Лоиҳаи SaaS",
+    "Chat-App": "Чат / Паёмрасон",
+    "AI-ML": "Зеҳни сунъӣ / Омӯзиши мошинӣ",
+    "Data-Visualization": "Намоиши маълумот",
+    "API-Development": "Таҳияи API",
+    "Game-Development": "Таҳияи бозӣ",
+    "Desktop-App": "Барномаи компютерӣ",
+    "IoT-Project": "Лоиҳаи IoT",
+    "Automation": "Автоматизатсия",
+    "Cloud-Project": "Лоиҳаи абрӣ",
+    "Portfolio-Site": "Сайти портфолио",
+    "Educational-App": "Барномаи таълимӣ",
+    "SMM": "SMM — Идоракунии шабакаҳои иҷтимоӣ",
+    "Content-Creation": "Эҷоди контент",
+    "Graphic-Design": "Дизайни графикӣ",
+    "Video-Editing": "Монтажи видео",
+    "Photography": "Суратгирӣ",
+    "Branding": "Брендинг",
+    "Business-Plan": "Бизнес-нақша ва стратегия",
+    "Consulting": "Машварат",
+    "Translation": "Тарҷума",
+    "Other": "Дигар"
+
+  }
 }
 }

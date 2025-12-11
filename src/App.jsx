@@ -23,6 +23,9 @@ import Posts from './pages/posts.pages/Posts.jsx'
 import ProfileMain from './pages/profile.pages/ProfileMain.jsx'
 import Jobs from './pages/jobs.pages/Jobs.jsx'
 import StuckNavigatorPage from './pages/profile.pages/StuckNavigatorPage.jsx'
+import Collaborators from './pages/posts.pages/Collaborators.jsx'
+import AddLinksForPost from './components/post-components/Tools/AddLinksForPost.jsx'
+import AddCategoryForPostComponent from './components/post-components/Tools/AddCategoryForPost.jsx'
 import { useNavigate } from 'react-router-dom'
 function App() {
   const userData=useSelector(state=>state.user)
@@ -63,6 +66,11 @@ function App() {
         <Route path={router.jobs} element={<Jobs/>}/>
         <Route path={router.history} element={<History/>}/>
         <Route path={router.messages} element={<Chats/>}/>
+        <Route  path={router.collaborator} element={<Collaborators/>}/>
+        <Route  path={router.addpostlink} element={<AddLinksForPost/>}/>
+        <Route  path={router.addcategorypost} element={<AddCategoryForPostComponent/>}/>
+
+
 
 
 

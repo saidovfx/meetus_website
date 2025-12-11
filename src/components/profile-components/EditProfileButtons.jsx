@@ -22,17 +22,17 @@ export default function EditProfileButtons() {
           ? user.bio.length > 150
             ? user.bio.slice(0, 150) + "..."
             : user.bio
-          : t("profile.notSet") || "Not set"}
+          : null}
       </p>
 
       <div className="flex items-center gap-2 mb-3 pl-3">
-        <MapPin size={16} className="text-red-500" />
+        {user?.location?.length>0 && <MapPin size={16} className="text-red-500" />}
         <span className="text-gray-700 text-sm sm:text-base">
           {user?.location
             ? user.location.length > 50
               ? user.location.slice(0, 50) + "..."
               : user.location
-            : t("profile.notSet") || "Not set"}
+            :null}
         </span>
       </div>
 

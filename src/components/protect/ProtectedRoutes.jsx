@@ -11,6 +11,5 @@ console.log('s',userData);
     return <Navigate to="/login" replace />;
   }
 
-  // Aks holda, children render qilinadi
   return children;
 }

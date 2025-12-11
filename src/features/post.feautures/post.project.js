@@ -3,10 +3,12 @@ import api from "../../config/axios.api.js";
 import { t } from "i18next";
 import toast from "react-hot-toast";
 import { s } from "framer-motion/client";
-
+import { removeAll } from "../search.feauture/search.js";
 export const get_myproject = createAsyncThunk(
   "get_my_project/project",
   async (_, { rejectWithValue, getState, dispatch }) => {
+    console.log("kk");
+
     try {
       const response = await api.get("posts/get_myprojects");
       return { data: response.data };
@@ -26,22 +28,21 @@ export const get_myproject = createAsyncThunk(
 
 export const createProject_images = createAsyncThunk(
   "create_project_images/project",
-  async (
-    { file, title, desc, link, githubLink, location, tags },
-    { rejectWithValue, getState, dispatch }
-  ) => {
+  async ({ file, data }, { rejectWithValue, getState, dispatch }) => {
     try {
+      console.log("s");
+      console.log(data);
       const formData = new FormData();
       file.forEach((image) => {
         formData.append("images", image);
       });
-      console.log("file", file);
-      formData.append("title", title);
-      formData.append("desc", desc);
-      formData.append("location", location);
-      formData.append("githubLink", githubLink);
-      formData.append("link", link);
-      formData.append("tags", tags);
+      Object.entries(data).forEach(([key, value]) => {
+        if (["collaborators", "skills"].includes(key)) {
+          formData.append(key, JSON.stringify(value));
+        } else {
+          formData.append(key, value);
+        }
+      });
 
       const response = await api.post("/posts/post_project_image", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -52,6 +53,7 @@ export const createProject_images = createAsyncThunk(
       });
 
       toast.success("Post created succesfully");
+      dispatch(removeAll());
       return response.data;
     } catch (error) {
       const status = error.response?.status;
@@ -67,19 +69,19 @@ export const createProject_images = createAsyncThunk(
 );
 export const createProject_video = createAsyncThunk(
   "create_project_video/project",
-  async (
-    { file, title, desc, link, githubLink, location, tags },
-    { rejectWithValue, getState, dispatch }
-  ) => {
+  async ({ file, data }, { rejectWithValue, getState, dispatch }) => {
     try {
+      console.log(file);
+
       const formData = new FormData();
       formData.append("video", file);
-      formData.append("title", title);
-      formData.append("desc", desc);
-      formData.append("location", location);
-      formData.append("githubLink", githubLink);
-      formData.append("link", link);
-      formData.append("tags", tags);
+      Object.entries(data).forEach(([key, value]) => {
+        if (["collaborators", "skills"].includes(key)) {
+          formData.append(key, JSON.stringify(value));
+        } else {
+          formData.append(key, value);
+        }
+      });
 
       const response = await api.post("/posts/post_project_video", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -90,6 +92,7 @@ export const createProject_video = createAsyncThunk(
       });
 
       toast.success("Project /post uploaded successfully");
+      dispatch(removeAll());
       return response.data;
     } catch (error) {
       const status = error.response?.status;

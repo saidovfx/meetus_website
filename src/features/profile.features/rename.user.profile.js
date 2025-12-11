@@ -92,8 +92,6 @@ export const delete_cover_image = createAsyncThunk(
   }
 );
 
-// edit/rename profile informations functions
-
 export const edit_info = createAsyncThunk(
   "rename/rename_user_info",
   async ({ key, value }, { rejectWithValue, getState }) => {
