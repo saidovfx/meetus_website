@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Home, Briefcase, Users, MessageCircle, Clock, Settings } from 'lucide-react';
+import { Home, Briefcase, Users, MessageCircle, Clock, Settings,Plus,SettingsIcon } from 'lucide-react';
 import { changePage } from '../../features/navigator.features/navigator.js';
 import { useNavigate } from 'react-router-dom';
 import ProfileMain from './ProfileMain';
@@ -28,9 +28,9 @@ const navigate=useNavigate()
   const navItems = [
     { name: t('profile.myProfile'), path: 'profile', icon: <Home size={20} /> },
     { name:t('profile.jobs') , path: 'jobs', icon: <Briefcase size={20} /> },
-    { name: t('profile.companiesAndUsers'), path: 'company', icon: <Users size={20} /> },
+    { name: t('profile.addpost'), path: 'createPost', icon: <Plus size={20} /> },
     { name: t('profile.messages'), path: 'chats', icon: <MessageCircle size={20} /> },
-    { name: t('profile.history'), path: 'createPost', icon: <Clock size={20} /> },
+    { name: t('profile.settings'), path: 'settings', icon: <SettingsIcon size={20} /> },
   ];
 React.useEffect(()=>{
   if(!loading){

@@ -9,6 +9,7 @@ import router from "../../config/router.app";
 import profilePicture from '../../images/profile.jpeg'
 import { X } from "lucide-react";
 import { removeSelectedUser } from "../../features/search.feauture/search";
+import { t } from "i18next";
 export default function Collaborators() {
   const dispatch = useDispatch();
   const { searchedUser,selectedUsers, loading, reportError } = useSelector(state => state.search);
@@ -23,23 +24,23 @@ const handleSearch=(text)=>{
     <div className="w-full min-h-screen bg-gray-50">
       <div
         onClick={() => navigate(router.stuckNavigator)}
-        className="flex items-center gap-2 p-4 bg-white shadow-md cursor-pointer"
+        className="flex items-center gap-2 p-4  cursor-pointer"
       >
         <ArrowLeft size={22} />
-        <p className="font-semibold text-lg text-gray-800">Add Collaborators</p>
+        <p className="font-semibold text-lg text-gray-800">{t('posts.collaborator')}</p>
       </div>
 
       <div className="p-4 space-y-4">
 
         <div className="border-l-4 border-blue-400 bg-blue-50 p-3 rounded-md text-gray-700 text-sm">
-          Search for users starting with <span className="font-semibold">@</span> to add them as collaborators.
+        {t('posts.collDesc')}
         </div>
 
         <div className="relative">
           <input
             type="text"
             className="w-full p-3 pl-4 rounded-xl border border-gray-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-400"
-            placeholder="Search for a friend..."
+            placeholder={t('posts.search')}
             value={value}
             onChange={(e)=>handleSearch(e.target.value)}
           />
@@ -58,7 +59,7 @@ const handleSearch=(text)=>{
       className="text-sm font-semibold mb-2"
       style={{ color: "#1a1f36" }}
     >
-      Selected ({selectedUsers.length})
+      {t('posts.selected')}({selectedUsers.length})
     </p>
 
     <div className="flex flex-wrap gap-2">

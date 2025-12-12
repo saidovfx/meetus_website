@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { X } from "lucide-react";
 import profilePicture from "../../../images/profile.jpeg";
 import { setSelectedUsers } from "../../../features/search.feauture/search";
-
+import { t } from "i18next";
 export default function AddCollaboratorRole({ user, open, onClose }) {
   const [role, setRole] = useState("web-developer");
   const [inputVisible, setInputVisible] = useState(false);
@@ -43,7 +43,7 @@ export default function AddCollaboratorRole({ user, open, onClose }) {
         <div className="modal-box   bg-white w-full max-w-lg rounded-xl">
           
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-blue-500 text-xl">Add Collaborator</h3>
+            <h3 className="font-bold text-blue-500 text-xl">{t('posts.collaborator')}</h3>
             <button
               onClick={onClose}
               className="btn btn-sm btn-circle btn-ghost"
@@ -65,7 +65,7 @@ export default function AddCollaboratorRole({ user, open, onClose }) {
 
           <label className="label">
             <span className="label-text font-medium">
-              Please select your friend's collaborator role
+            {t('posts.collaboratorSelectRole')}
             </span>
           </label>
 
@@ -83,12 +83,12 @@ export default function AddCollaboratorRole({ user, open, onClose }) {
           {inputVisible && (
             <div className="mt-3">
               <p className="text-sm mb-1 text-gray-600">
-                Please write your collaborator role:
+                {t('posts.collaboratorWriteRole')}
               </p>
               <input
                 type="text"
                 className="input text-gray-700 bg-white input-bordered w-full"
-                placeholder="eg: Co-Founder"
+                placeholder={t('posts.egRole')}
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
               />
@@ -101,10 +101,10 @@ export default function AddCollaboratorRole({ user, open, onClose }) {
 
           <div className="modal-action">
             <button className="btn btn-ghost" onClick={onClose}>
-              Cancel
+             {t('posts.cancel')}
             </button>
             <button className="btn btn-primary text-white" onClick={handleAdd}>
-              Add Collaborator
+              {t('posts.collaborator')}
             </button>
           </div>
         </div>

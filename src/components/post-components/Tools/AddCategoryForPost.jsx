@@ -49,12 +49,11 @@ export default function AddCategoryForPostComponent() {
 
         <div className="flex items-center gap-3 mb-6 cursor-pointer" onClick={() => navigate(-1)}>
           <ArrowLeft className="w-6 h-6 text-blue-500" />
-          <h2 className="text-2xl font-semibold text-gray-800">Post Category</h2>
+          <h2 className="text-2xl font-semibold text-gray-800">{t('posts.category')}</h2>
         </div>
 
         <p className="text-gray-600 mb-6">
-          Choose the most suitable category.  
-          If not listed, select "Other" and enter manually.
+     {t('posts.linkdesc')}
         </p>
 
         {!inputVisible && (
@@ -94,7 +93,7 @@ export default function AddCategoryForPostComponent() {
             </button>
 
             <p className="text-gray-600 mb-2">
-              Write your custom category:
+              {t('posts.writeCategory')}
             </p>
 
             <input
@@ -113,7 +112,7 @@ export default function AddCategoryForPostComponent() {
           onClick={handleSubmit}
           className="w-full py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-medium rounded-xl hover:opacity-90 transition duration-200"
         >
-          Save & Continue
+          {t('posts.save')}
         </button>
       </div>
     </div>
