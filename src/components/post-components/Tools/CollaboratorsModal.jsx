@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import profileImg from '../../../images/profile.jpeg';
 import { useState } from "react";
-
+import { t } from "i18next";
 export default function CollaboratorsModal({ open, onClose,item, user,collaborators }) {
   const [followedUsers, setFollowedUsers] = useState([]);
   if (!open) return null;
@@ -30,7 +30,7 @@ export default function CollaboratorsModal({ open, onClose,item, user,collaborat
         </button>
 
         <h2 className="text-xl font-semibold mb-5 text-gray-900">
-          Collaborators
+         {t('posts.postCategory')}
         </h2>
 
         <div className="flex flex-col gap-4">
@@ -49,8 +49,8 @@ export default function CollaboratorsModal({ open, onClose,item, user,collaborat
                     className="w-12 h-12 rounded-full object-cover border"
                   />
                   <div>
-                    <p className="font-medium text-gray-900">{user?.fullname || "Unknown User"}</p>
-                    <p className="text-xs text-gray-600">{c.role || "Contributor"}</p>
+                    <p className="font-medium text-gray-900">{user?.fullname || t('posts.unkown')}</p>
+                    <p className="text-xs text-gray-600">{c.role || t('posts.contributor')}</p>
                   </div>
                 </div>
 

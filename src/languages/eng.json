@@ -179,11 +179,12 @@
       "projects": "Projects",
        "username": "username",
       "vacancy": "Vacancy",
-      "deletedProfileImg":"Profile image deleted successfully",
+       "deletedProfileImg":"Profile image deleted successfully",
       "profileImgUpload":"Profile image updated!",
         "myProfile": "My Profile",
         "jobs": "Jobs",
        "companiesAndUsers": "Companies & Users",
+       "addpost":"Add",
        "messages": "Messages",
        "history": "History",
        "settings": "Settings",
@@ -263,7 +264,41 @@
     "Business-Plan": "Business Plan & Strategy",
     "Consulting": "Consulting",
     "Translation": "Translation",
-    "Other": "Other"
+    "Other": "Other",
+      "createPost": "Create New Post",
+            "createPostDesc":"You can create any type of post — project, idea, or announcement. If you want to work with friends, simply add them as collaborators.",
+              "selectMediaDesc": "Click to upload media (Max 5 images or 1 video)",
+                "uploadFile": "Upload file",
+                  "postTitle": "Post title...",
+                    "shortDescription": "Short description...",
+                      "fullDescription": "Full description...",
+                      "tagsToEnter":"Type a tag and press Enter...",
+                      "collaborator":"Select collaborator",
+                      "additionalLink":" Add additional links for project",
+                      "category":" Add category",
+                      "publish":"Publish",
+                      "creating":"Creating...",
+                      "clear":"Clear",
+                      "linkdesc":"Choose the most suitable category.If not listed, select 'Other' and enter manually.",
+                      "postCategory":"Post Category",
+                      "writeCategory":" Write your custom category:",
+                      "save":"Save & Continue",
+                        "collaboratorpage":" Collaborators",
+  "unknown":"Unknown User",
+  "contributor":"Contributor",
+  "collaboratorSelectRole":" Please select your friend's collaborator role",
+  "collaboratorWriteRole":"  Please write your collaborator role:",
+  "egRole":"eg: Co-Founder",
+  "close":"close",
+  "cancel":"Cancel",
+  "collDesc":" Search for users starting with | '@' | to add them as collaborators.",
+  "search":"Search for a friend...",
+  "selected":"Selected"
+
+  
+
+
+
   
 
 

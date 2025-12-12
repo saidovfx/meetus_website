@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { X, Upload, FileText, Tag, MapPin, Video, Sparkles } from "lucide-react";
 import toast from "react-hot-toast";
-
+import { t } from "i18next";
 export const MediaPreview = ({ files, type, removeFile,video }) => (
   <div className={`grid ${type === 'video' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3'} gap-4 mb-4`}>
     {files.map((file, i) => (
@@ -38,7 +38,7 @@ export const TagsInput = ({ tags, tagInput, setTagInput, addTag, removeTag }) =>
       value={tagInput}
       onChange={(e) => setTagInput(e.target.value)}
       onKeyDown={addTag}
-      placeholder="Type a tag and press Enter..."
+      placeholder={t('posts.tagsToEnter')}
       className="input input-bordered w-full focus:input-accent mb-2"
     />
     <div className="flex flex-wrap gap-2">
