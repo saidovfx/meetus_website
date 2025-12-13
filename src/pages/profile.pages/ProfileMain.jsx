@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function ProfileMain() {
   const [activeTab, setActiveTab] = useState("posts");
-const {user}=useSelector(state=>state.user)
+   const {user}=useSelector(state=>state.user)
   return (
     <div className="w-full min-h-screen bg-gray-50">
       <ProfileHeader />
