@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Home, Briefcase, Users, MessageCircle, Clock, Settings,Plus,SettingsIcon } from 'lucide-react';
+import { Home, Briefcase, Users, MessageCircle, Clock, Settings, Plus, SettingsIcon } from 'lucide-react';
 import { changePage } from '../../features/navigator.features/navigator.js';
 import { useNavigate } from 'react-router-dom';
+
 import ProfileMain from './ProfileMain';
 import Jobs from '../jobs.pages/Jobs.jsx';
 import Company from '../company.pages/Company.jsx';
@@ -19,29 +20,31 @@ import RenameFullname from '../../components/profile-components/EditFullname.jsx
 import EditBirthdate from '../../components/profile-components/EditBirthdate.jsx';
 import CreatePost from '../../components/post-components/CreatePost.jsx';
 import AddSocialLink from '../../components/profile-components/AddSocialLink.jsx';
-import router from '../../config/router.app.js'
+import router from '../../config/router.app.js';
+
 export default function StuckNavigatorPage() {
   const dispatch = useDispatch();
   const { page } = useSelector((state) => state.navigator);
-  const {user,loading}=useSelector((state)=>state.user)
-const navigate=useNavigate()
+  const { user, loading } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
   const navItems = [
     { name: t('profile.myProfile'), path: 'profile', icon: <Home size={20} /> },
-    { name:t('profile.jobs') , path: 'jobs', icon: <Briefcase size={20} /> },
+    { name: t('profile.jobs'), path: 'jobs', icon: <Briefcase size={20} /> },
     { name: t('profile.addpost'), path: 'createPost', icon: <Plus size={20} /> },
     { name: t('profile.messages'), path: 'chats', icon: <MessageCircle size={20} /> },
     { name: t('profile.settings'), path: 'settings', icon: <SettingsIcon size={20} /> },
   ];
-React.useEffect(()=>{
-  if(!loading){
-  if(!user?.email){ 
-    return navigate(router.intro)
-}
-}
-},[])
 
-  return (  
+  // React.useEffect(() => {
+  //   if (!loading && !user?.email) {
+  //     navigate(router.intro);
+  //   }
+  // }, [loading, user, navigate]);
+
+  return (
     <div className="flex h-screen bg-gradient-to-r from-[#e6f0fa] to-[#f9fbff]">
+      
       <aside className="hidden md:flex flex-col w-72 bg-white/80 backdrop-blur-lg shadow-2xl border-r border-gray-200 p-5">
         <div className="flex items-center gap-3 mb-8">
           <div className="bg-gradient-to-br from-[#00bfff] to-[#0288d1] w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
@@ -66,11 +69,7 @@ React.useEffect(()=>{
               `}
             >
               <div
-                className={`${
-                  page === item.path
-                    ? 'text-white'
-                    : 'text-[#0288d1] group-hover:text-white'
-                }`}
+                className={`${page === item.path ? 'text-white' : 'text-[#0288d1] group-hover:text-white'}`}
               >
                 {item.icon}
               </div>
@@ -89,38 +88,39 @@ React.useEffect(()=>{
           </button>
         </div>
       </aside>
-<main className="flex-1 flex flex-col min-h-screen overflow-hidden">
-  <div className="flex-1 overflow-y-auto p-4 md:p-6 pb-20 md:pb-6">
-    {page === 'profile' && <ProfileMain />}
-    {page === 'chats' && <Chats />}
-    {page === 'history' && <History />}
-    {page === 'jobs' && <Jobs />}
-    {page === 'company' && <Company />}
-    {page === 'edit' && <EditProfile />}
-    {page === 'renameusername' && <RenameUsername />}
-    {page === 'renameemail' && <EditEmail />}
-    {page === 'renamephone' && <EditPhone />}
-    {page === 'renamebio' && <EditBio />}
-    {page === 'renamelocation' && <EditLocation />}
-    {page === 'renamefullname' && <RenameFullname />}
-    {page === 'renamebirthdate' && <EditBirthdate />}
-    {page === 'addsocialLink' && <AddSocialLink />}
-    {page === 'createPost' && <CreatePost />}
-  </div>
-</main>
 
-<nav className="fixed bottom-0 left-0 right-0 md:hidden bg-white/90 backdrop-blur-md shadow-lg flex justify-around py-2 border-t border-gray-200">
-  {navItems.map((item) => (
-    <button
-      key={item.name}
-      onClick={() => dispatch(changePage({ page: item.path }))}
-      className={`flex flex-col items-center justify-center text-xs ${page === item.path ? 'text-[#00bfff]' : 'text-gray-500'}`}
-    >
-      {item.icon}
-      <span>{item.name.split(' ')[0]}</span>
-    </button>
-  ))}
-</nav>
+      <main className="flex-1 flex flex-col min-h-screen overflow-hidden">
+        <div className="flex-1 overflow-y-auto px-0 py-4 md:px-0 md:py-6 pb-20 md:pb-6">
+          {page === 'profile' && <ProfileMain />}
+          {page === 'chats' && <Chats />}
+          {page === 'history' && <History />}
+          {page === 'jobs' && <Jobs />}
+          {page === 'company' && <Company />}
+          {page === 'edit' && <EditProfile />}
+          {page === 'renameusername' && <RenameUsername />}
+          {page === 'renameemail' && <EditEmail />}
+          {page === 'renamephone' && <EditPhone />}
+          {page === 'renamebio' && <EditBio />}
+          {page === 'renamelocation' && <EditLocation />}
+          {page === 'renamefullname' && <RenameFullname />}
+          {page === 'renamebirthdate' && <EditBirthdate />}
+          {page === 'addsocialLink' && <AddSocialLink />}
+          {page === 'createPost' && <CreatePost />}
+        </div>
+      </main>
+
+      <nav className="fixed bottom-0 left-0 right-0 md:hidden bg-white/90 backdrop-blur-md shadow-lg flex justify-around py-2 border-t border-gray-200">
+        {navItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => dispatch(changePage({ page: item.path }))}
+            className={`flex flex-col items-center justify-center text-xs ${page === item.path ? 'text-[#00bfff]' : 'text-gray-500'}`}
+          >
+            {item.icon}
+            <span>{item.name.split(' ')[0]}</span>
+          </button>
+        ))}
+      </nav>
 
     </div>
   );

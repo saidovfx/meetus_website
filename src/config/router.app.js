@@ -18,6 +18,8 @@ const router = {
   collaborator: "/collaborator",
   addpostlink: "/add-post-link",
   addcategorypost: "/add-category-post",
+  postViewLink: (postId) => `/postView/${postId}`,
+  postView: "/postView/:postId",
 };
 
 export default router;

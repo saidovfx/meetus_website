@@ -1,16 +1,32 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import backgroundImage from "../../images/meetus_background.png";
 import profileImage from "../../images/profile.jpeg";
 import businessImage from "../../images/bussness.png";
 import { t } from "i18next";
 import Modal from "./Modal";
 import { useState } from "react";
+import { getCollaborator } from "../../features/notification.features/post.notifictaion/collaborator.notication.js";
+import CollaboratorNotification from "../notification/Tools/CollaboratorNotification.jsx";
 export default function ProfileHeader() {
+  const dispatch=useDispatch()
   const { user } = useSelector((state) => state.user);
+  const {collaborators} =useSelector(state=>state.collaborator)
 const [isModalOpen,setIsModalOpen]=useState(false)
+console.log(collaborators);
+
+useEffect(()=>{
+  dispatch(getCollaborator())
+},[])
   return (
     <div className="relative w-full ">
+      {collaborators.length>0 && 
+      collaborators.map((item)=>(
+   <div key={item?._id}> 
+       <CollaboratorNotification  collaborator={item} /></div>
+      ))
+      
+      }
       <div className="relative h-[14rem] md:h-[16rem] w-full">
         <img
           src={user?.coverImgUrl ? user.coverImgUrl : backgroundImage}

@@ -282,7 +282,11 @@
   "cancel": "Bekor qilish",
     "collDesc": "Hamkor sifatida qo‘shish uchun foydalanuvchilarni | '@' | bilan boshlanadigan nomlari orqali qidiring.",
   "search": "Do‘stni qidirish...",
-  "selected": "Tanlangan"
+  "selected": "Tanlangan",
+    "invitedMessage": "sizni hamkorlikka taklif qildi",
+  "message": "Xabar",
+  "seePost": "Postni ko‘rish",
+  "acceptPost": "Qabul qilish"
 
 
 

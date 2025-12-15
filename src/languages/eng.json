@@ -293,7 +293,11 @@
   "cancel":"Cancel",
   "collDesc":" Search for users starting with | '@' | to add them as collaborators.",
   "search":"Search for a friend...",
-  "selected":"Selected"
+  "selected":"Selected",  
+  "invitedMessage":" invited you to collaborate",
+  "message":" Message ",
+  "seePost":"See post",
+  "acceptPost":"Accept"
 
   
 

@@ -27,6 +27,7 @@ import Collaborators from './pages/posts.pages/Collaborators.jsx'
 import AddLinksForPost from './components/post-components/Tools/AddLinksForPost.jsx'
 import AddCategoryForPostComponent from './components/post-components/Tools/AddCategoryForPost.jsx'
 import { useNavigate } from 'react-router-dom'
+import PostViewPage from './pages/posts.pages/PostViewPage.jsx'
 function App() {
   const userData=useSelector(state=>state.user)
 
@@ -69,6 +70,7 @@ function App() {
         <Route  path={router.collaborator} element={<Collaborators/>}/>
         <Route  path={router.addpostlink} element={<AddLinksForPost/>}/>
         <Route  path={router.addcategorypost} element={<AddCategoryForPostComponent/>}/>
+        <Route path={router.postView} element={<PostViewPage/>} />
 
 
 

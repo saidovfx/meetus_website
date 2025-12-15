@@ -13,13 +13,13 @@ import { t } from "i18next";
 export default function Collaborators() {
   const dispatch = useDispatch();
   const { searchedUser,selectedUsers, loading, reportError } = useSelector(state => state.search);
-const [value,setValue]=useState('')
+   const [value,setValue]=useState('')
     const navigate=useNavigate()
 
-const handleSearch=(text)=>{
+   const handleSearch=(text)=>{
   setValue(text)
   dispatch(search({text}))
-}
+   }
   return (
     <div className="w-full min-h-screen bg-gray-50">
       <div
